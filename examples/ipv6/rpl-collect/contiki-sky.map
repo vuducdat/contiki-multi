@@ -34,7 +34,7 @@ contiki-sky.a(uip-ds6.o)      contiki-sky.a(tcpip.o) (uip_ds6_is_addr_onlink)
 contiki-sky.a(uip-icmp6.o)    contiki-sky.a(rpl-icmp6.o) (uip_icmp6_send)
 contiki-sky.a(uip-nd6.o)      contiki-sky.a(tcpip.o) (uip_nd6_ns_output)
 contiki-sky.a(uip-udp-packet.)
-                              udp-sender.co (uip_udp_packet_sendto_instance)
+                              udp-sender.co (uip_udp_packet_sendto_by_instance)
 contiki-sky.a(uip6.o)         contiki-sky.a(rpl-icmp6.o) (uip_aligned_buf)
 contiki-sky.a(collect-view.o)
                               udp-sender.co (collect_view_construct_message)
@@ -1636,9 +1636,9 @@ LOAD /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a
  .text.uip_udp_packet_send
                 0x0000ae54       0x2e contiki-sky.a(uip-udp-packet.)
                 0x0000ae54                uip_udp_packet_send
- .text.uip_udp_packet_sendto_instance
+ .text.uip_udp_packet_sendto_by_instance
                 0x0000ae82       0x88 contiki-sky.a(uip-udp-packet.)
-                0x0000ae82                uip_udp_packet_sendto_instance
+                0x0000ae82                uip_udp_packet_sendto_by_instance
  .text.chksum   0x0000af0a       0x32 contiki-sky.a(uip6.o)
  .text.upper_layer_chksum
                 0x0000af3c       0x56 contiki-sky.a(uip6.o)

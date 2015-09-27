@@ -1,40 +1,35 @@
-[15:41:40 - AWT-EventQueue-0] [GUI.java:2846] [INFO] - External tools default settings: /external_tools_linux.config
-[15:41:40 - AWT-EventQueue-0] [GUI.java:2876] [INFO] - External tools user settings: /home/namnt/.cooja.user.properties
-[15:41:45 - Thread-0] [Simulation.java:423] [INFO] - Simulation random seed: 123456
-[15:41:45 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
-[15:41:45 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sink.sky TARGET=sky 
-[15:41:45 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
-[15:41:45 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sender.sky TARGET=sky 
-[15:41:45 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sink.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:46 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[15:41:47 - Thread-0] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
-[15:41:58 - Thread-1] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1443343318020
-[15:45:19 - Thread-1] [MspMote.java:226] [WARN] - 16: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
-[15:45:27 - Thread-1] [MspMote.java:226] [WARN] - 12: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
-[15:45:45 - Thread-1] [MspMote.java:226] [WARN] - 20: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
-[15:46:32 - Thread-1] [MspMote.java:226] [WARN] - 25: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
-[15:48:47 - Thread-1] [MspMote.java:226] [WARN] - 20: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
-[15:52:00 - Thread-1] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1443343920917	Duration: 602897 ms	Simulated time 600739 ms	Ratio 0.9964206157934108
+[18:00:03 - AWT-EventQueue-0] [GUI.java:2846] [INFO] - External tools default settings: /external_tools_linux.config
+[18:00:03 - AWT-EventQueue-0] [GUI.java:2876] [INFO] - External tools user settings: /home/namnt/.cooja.user.properties
+[18:00:13 - Thread-0] [Simulation.java:423] [INFO] - Simulation random seed: 123456
+[18:00:13 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
+[18:00:13 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sink.sky TARGET=sky 
+[18:00:18 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
+[18:00:18 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sender.sky TARGET=sky 
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sink.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:19 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:20 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
+[18:00:22 - Thread-0] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[18:00:31 - Thread-1] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1443351631061
+[18:03:47 - Thread-1] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1443351827746	Duration: 196685 ms	Simulated time 183701 ms	Ratio 0.9339858148816635

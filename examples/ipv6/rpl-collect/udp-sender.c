@@ -159,7 +159,7 @@ collect_common_send(void)
   printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
   // Cross layer
   //UIP_IP_BUF->instance = 0x1f;
-  uip_udp_packet_sendto_instance(client_conn, &msg, sizeof(msg),
+  uip_udp_packet_sendto_by_instance(client_conn, &msg, sizeof(msg),
                         &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
@@ -189,7 +189,7 @@ send_packet(void *ptr)
   printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
   // Cross layer
   //UIP_IP_BUF->instance = 0x1e;
-  uip_udp_packet_sendto_instance(client_conn, &msg, sizeof(msg),
+  uip_udp_packet_sendto_by_instance(client_conn, &msg, sizeof(msg),
                         &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
