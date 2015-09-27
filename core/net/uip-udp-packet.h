@@ -45,5 +45,8 @@
 void uip_udp_packet_send(struct uip_udp_conn *c, const void *data, int len);
 void uip_udp_packet_sendto(struct uip_udp_conn *c, const void *data, int len,
 			   const uip_ipaddr_t *toaddr, uint16_t toport);
+// Changed
+void uip_udp_packet_sendto_instance(struct uip_udp_conn *c, const void *data, int len,
+			   const uip_ipaddr_t *toaddr, uint16_t toport, uint8_t instance);
 
 #endif /* __UIP_UDP_PACKET_H__ */

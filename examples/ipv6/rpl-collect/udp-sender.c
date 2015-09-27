@@ -158,9 +158,9 @@ collect_common_send(void)
   
   printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
   // Cross layer
-  UIP_IP_BUF->instance = 0x1f;
-  uip_udp_packet_sendto(client_conn, &msg, sizeof(msg),
-                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT));
+  //UIP_IP_BUF->instance = 0x1f;
+  uip_udp_packet_sendto_instance(client_conn, &msg, sizeof(msg),
+                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -182,15 +182,15 @@ send_packet(void *ptr)
     /* Wrap to 128 to identify restarts */
     seq_id = 128;
   }
-  msg.instance_id = RPL_DEFAULT_INSTANCE ; 
+  msg.instance_id = RPL_DEFAULT_INSTANCE; 
   msg.seqno = seq_id ;
   sprintf(&msg.msg, "Hello %d", seq_id);
   
   printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
   // Cross layer
-  UIP_IP_BUF->instance = 0x1e;
-  uip_udp_packet_sendto(client_conn, &msg, sizeof(msg),
-                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT));
+  //UIP_IP_BUF->instance = 0x1e;
+  uip_udp_packet_sendto_instance(client_conn, &msg, sizeof(msg),
+                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
 void

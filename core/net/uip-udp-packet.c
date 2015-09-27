@@ -91,4 +91,33 @@ uip_udp_packet_sendto(struct uip_udp_conn *c, const void *data, int len,
     c->rport = curport;
   }
 }
+/*Changed---------------------------------------------------------------------*/
+void
+uip_udp_packet_sendto_instance(struct uip_udp_conn *c, const void *data, int len,
+		      const uip_ipaddr_t *toaddr, uint16_t toport, uint8_t instance)
+{
+  uip_ipaddr_t curaddr;
+  uint16_t curport;
+  // Changed 
+  uint8_t curinst;
+
+  if(toaddr != NULL && rpl_get_instance(instance) != NULL) {
+    /* Changed Save current IP addr/port/instance. */
+    uip_ipaddr_copy(&curaddr, &c->ripaddr);
+    curport = c->rport;
+    curinst = c->instance;
+
+    /* Changed Load new IP addr/port/instance */
+    uip_ipaddr_copy(&c->ripaddr, toaddr);
+    c->rport = toport;
+    c->instance = instance;
+
+    uip_udp_packet_send(c, data, len);
+
+    /* Changed Restore old IP addr/port/instance */
+    uip_ipaddr_copy(&c->ripaddr, &curaddr);
+    c->rport = curport;
+    c->instance = curinst;
+  }
+}
 /*---------------------------------------------------------------------------*/

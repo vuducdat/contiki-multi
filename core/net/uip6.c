@@ -567,6 +567,8 @@ uip_udp_new(const uip_ipaddr_t *ripaddr, uint16_t rport)
     uip_ipaddr_copy(&conn->ripaddr, ripaddr);
   }
   conn->ttl = uip_ds6_if.cur_hop_limit;
+  // Changed
+  conn->instance = 0x1e;
   
   return conn;
 }
@@ -1546,7 +1548,7 @@ uip_process(uint8_t flag)
   UIP_IP_BUF->ttl = uip_udp_conn->ttl;
   UIP_IP_BUF->proto = UIP_PROTO_UDP;
   /* Changed */
-  //UIP_IP_BUF->instance = 0x1f;
+  UIP_IP_BUF->instance = uip_udp_conn->instance;
 
   UIP_UDP_BUF->udplen = UIP_HTONS(uip_slen + UIP_UDPH_LEN);
   UIP_UDP_BUF->udpchksum = 0;
