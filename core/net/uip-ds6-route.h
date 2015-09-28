@@ -74,7 +74,8 @@ void uip_ds6_notification_rm(struct uip_ds6_notification *n);
 #ifdef UIP_CONF_DS6_ROUTE_NBU
 #define UIP_DS6_ROUTE_NB UIP_CONF_DS6_ROUTE_NBU
 #else /* UIP_CONF_DS6_ROUTE_NBU */
-#define UIP_DS6_ROUTE_NB 4
+// Changed
+#define UIP_DS6_ROUTE_NB 8
 #endif /* UIP_CONF_DS6_ROUTE_NBU */
 #else /* UIP_CONF_MAX_ROUTES */
 #define UIP_DS6_ROUTE_NB UIP_CONF_MAX_ROUTES

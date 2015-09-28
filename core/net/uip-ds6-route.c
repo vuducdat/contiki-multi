@@ -452,12 +452,6 @@ uip_ds6_route_rm_by_nexthop(uip_ipaddr_t *nexthop)
   rm_routelist(routes);
 }
 /*Changed--------------------------------------------------------------------*/
-/*static clock_time_t
-get_time(void)
-{
-  return (clock_time_t)((clock_time()*1000UL)/CLOCK_CONF_SECOND);
-}*/
-/*Changed--------------------------------------------------------------------*/
 uip_ds6_defrt_t *
 uip_ds6_defrt_lookup_by_instance(uint8_t instance_id, uip_ipaddr_t *ipaddr)
 {
@@ -496,12 +490,12 @@ uip_ds6_defrt_add(uint8_t instance_id, uip_ipaddr_t *ipaddr, unsigned long inter
       PRINT6ADDR(ipaddr);
       PRINTF("\n");
     }
-    d->instance_id = instance_id; //changed
 
     list_push(defaultrouterlist, d);
   }
 
   uip_ipaddr_copy(&d->ipaddr, ipaddr);
+  d->instance_id = instance_id; //changed
   if(interval != 0) {
     stimer_set(&d->lifetime, interval);
     d->isinfinite = 0;

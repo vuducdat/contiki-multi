@@ -23,11 +23,7 @@
 #define CONTROL_TRAFFIC 2
 
 /* Config routing table */
-#undef UIP_CONF_MAX_ROUTES
-#define UIP_CONF_MAX_ROUTES 12
-
-/* Config def router list */
-#undef UIP_CONF_DS6_DEFRT_NBU
-#define UIP_CONF_DS6_DEFRT_NBU 6
+/* #undef UIP_CONF_MAX_ROUTES
+#define UIP_CONF_MAX_ROUTES 12 */ 
 
 #endif /* __PROJECT_CONF_H__ */
