@@ -48,9 +48,6 @@
 #define DEBUG DEBUG_PRINT
 #include "net/uip-debug.h"
 
-// Changed
-#define UIP_IP_BUF                ((struct uip_ip_hdr *)&uip_buf[UIP_LLH_LEN])
-
 #ifndef PERIOD
 #define PERIOD 60
 #endif

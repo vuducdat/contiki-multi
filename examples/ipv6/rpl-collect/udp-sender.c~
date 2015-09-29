@@ -48,9 +48,6 @@
 #define DEBUG DEBUG_PRINT
 #include "net/uip-debug.h"
 
-// Changed
-#define UIP_IP_BUF                ((struct uip_ip_hdr *)&uip_buf[UIP_LLH_LEN])
-
 #ifndef PERIOD
 #define PERIOD 60
 #endif
@@ -189,7 +186,7 @@ send_packet(void *ptr)
   printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
   // Cross layer
   //UIP_IP_BUF->instance = 0x1e;
-  uip_udp_packet_sendto_instance(client_conn, &msg, sizeof(msg),
+  uip_udp_packet_sendto_by_instance(client_conn, &msg, sizeof(msg),
                         &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
