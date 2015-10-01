@@ -584,7 +584,7 @@ tcpip_ipv6_output(void)
     instance_id2 = RPL_DEFAULT_INSTANCE;
   } 
   
-  printf ("uip_len: %d %d %d\n", uip_len, instance_id, instance_id2);
+  //printf ("uip_len: %d %d %d\n", uip_len, instance_id, instance_id2);
 
   if(!uip_is_addr_mcast(&UIP_IP_BUF->destipaddr)) {
     /* Next hop determination */

@@ -322,7 +322,6 @@ uip_ds6_route_add(uint8_t instance_id, uip_ipaddr_t *ipaddr, uint8_t length,
       return NULL;
     }
 
-
     /* Add the route to this neighbor */
     list_add(routes->route_list, r);
     num_routes++;

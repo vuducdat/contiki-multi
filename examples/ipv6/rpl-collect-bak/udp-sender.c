@@ -33,22 +33,29 @@
 #include "net/uip-udp-packet.h"
 #include "net/rpl/rpl.h"
 #include "dev/serial-line.h"
-#if CONTIKI_TARGET_Z1
-#include "dev/uart0.h"
-#else
-#include "dev/uart1.h"
-#endif
+
+#include "net/netstack.h"
 #include "collect-common.h"
 #include "collect-view.h"
 
 #include <stdio.h>
 #include <string.h>
+#include <powertrace.h>
 
 #define UDP_CLIENT_PORT 8775
 #define UDP_SERVER_PORT 5688
 
 #define DEBUG DEBUG_PRINT
 #include "net/uip-debug.h"
+
+#ifndef PERIOD
+#define PERIOD 60
+#endif
+
+#define START_INTERVAL		(15 * CLOCK_SECOND)
+#define SEND_INTERVAL		(PERIOD * CLOCK_SECOND)
+#define SEND_TIME		(random_rand() % (SEND_INTERVAL))
+#define MAX_PAYLOAD_LEN		12
 
 static struct uip_udp_conn *client_conn;
 static uip_ipaddr_t server_ipaddr;
@@ -67,22 +74,6 @@ collect_common_set_sink(void)
 void
 collect_common_net_print(void)
 {
-  rpl_dag_t *dag;
-  uip_ds6_route_t *r;
-
-  /* Let's suppose we have only one instance */
-  dag = rpl_get_any_dag();
-  if(dag->preferred_parent != NULL) {
-    PRINTF("Preferred parent: ");
-    PRINT6ADDR(rpl_get_parent_ipaddr(dag->preferred_parent));
-    PRINTF("\n");
-  }
-  for(r = uip_ds6_route_head();
-      r != NULL;
-      r = uip_ds6_route_next(r)) {
-    PRINT6ADDR(&r->ipaddr);
-  }
-  PRINTF("---\n");
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -96,10 +87,14 @@ tcpip_handler(void)
 void
 collect_common_send(void)
 {
+  /*For send regular packets*/
   static uint8_t seqno;
   struct {
-    uint8_t seqno;
+    /*Changed*/
+    uint8_t instance_id;   //RPL_SECOND_INSTANCE
     uint8_t for_alignment;
+    uint8_t seqno;
+    uint8_t for_alignment1;
     struct collect_view_data_msg msg;
   } msg;
   /* struct collect_neighbor *n; */
@@ -109,6 +104,7 @@ collect_common_send(void)
   uint16_t beacon_interval;
   rpl_parent_t *preferred_parent;
   rimeaddr_t parent;
+  rpl_instance_t *instance; //changed
   rpl_dag_t *dag;
 
   if(client_conn == NULL) {
@@ -121,13 +117,16 @@ collect_common_send(void)
     /* Wrap to 128 to identify restarts */
     seqno = 128;
   }
+  msg.instance_id = RPL_SECOND_INSTANCE ; 
   msg.seqno = seqno;
 
   rimeaddr_copy(&parent, &rimeaddr_null);
   parent_etx = 0;
 
   /* Let's suppose we have only one instance */
-  dag = rpl_get_any_dag();
+  /*Changed*/
+  instance = rpl_get_instance(RPL_DEFAULT_INSTANCE);
+  dag = instance->current_dag;
   if(dag != NULL) {
     preferred_parent = dag->preferred_parent;
     if(preferred_parent != NULL) {
@@ -153,20 +152,47 @@ collect_common_send(void)
   collect_view_construct_message(&msg.msg, &parent,
                                  parent_etx, rtmetric,
                                  num_neighbors, beacon_interval);
+  
+  printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
+  // Cross layer
+  //UIP_IP_BUF->instance = 0x1f;
+  uip_udp_packet_sendto_by_instance(client_conn, &msg, sizeof(msg),
+                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
+}
+/*---------------------------------------------------------------------------*/
+static void
+send_packet(void *ptr)
+{
+  /*For send critical packets*/
+  static int seq_id;
+  struct {
+    uint8_t instance_id;   //RPL_DEFAULT_INSTANCE
+    uint8_t for_alignment;
+    uint8_t seqno;
+    uint8_t for_alignment1;
+    char msg[MAX_PAYLOAD_LEN];
+  } msg;
 
-  uip_udp_packet_sendto(client_conn, &msg, sizeof(msg),
-                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT));
+  memset(&msg, 0, sizeof(msg));
+  seq_id++;
+  if(seq_id == 0) {
+    /* Wrap to 128 to identify restarts */
+    seq_id = 128;
+  }
+  msg.instance_id = RPL_DEFAULT_INSTANCE; 
+  msg.seqno = seq_id ;
+  sprintf(&msg.msg, "Hello %d", seq_id);
+  
+  printf ("msg send, %d, %d\n", msg.instance_id, msg.seqno);
+  // Cross layer
+  //UIP_IP_BUF->instance = 0x1e;
+  uip_udp_packet_sendto_by_instance(client_conn, &msg, sizeof(msg),
+                        &server_ipaddr, UIP_HTONS(UDP_SERVER_PORT), msg.instance_id);
 }
 /*---------------------------------------------------------------------------*/
 void
 collect_common_net_init(void)
 {
-#if CONTIKI_TARGET_Z1
-  uart0_set_input(serial_line_input_byte);
-#else
-  uart1_set_input(serial_line_input_byte);
-#endif
-  serial_line_init();
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -175,13 +201,10 @@ print_local_addresses(void)
   int i;
   uint8_t state;
 
-  PRINTF("Client IPv6 addresses: ");
   for(i = 0; i < UIP_DS6_ADDR_NB; i++) {
     state = uip_ds6_if.addr_list[i].state;
     if(uip_ds6_if.addr_list[i].isused &&
        (state == ADDR_TENTATIVE || state == ADDR_PREFERRED)) {
-      PRINT6ADDR(&uip_ds6_if.addr_list[i].ipaddr);
-      PRINTF("\n");
       /* hack to make address "final" */
       if (state == ADDR_TENTATIVE) {
         uip_ds6_if.addr_list[i].state = ADDR_PREFERRED;
@@ -206,7 +229,11 @@ set_global_address(void)
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(udp_client_process, ev, data)
 {
+  static struct etimer periodic;
+  static struct ctimer backoff_timer;
   PROCESS_BEGIN();
+  /* Start powertracing, once every two seconds. */
+  //powertrace_start(CLOCK_SECOND * 30);
 
   PROCESS_PAUSE();
 
@@ -220,15 +247,20 @@ PROCESS_THREAD(udp_client_process, ev, data)
   client_conn = udp_new(NULL, UIP_HTONS(UDP_SERVER_PORT), NULL);
   udp_bind(client_conn, UIP_HTONS(UDP_CLIENT_PORT));
 
-  PRINTF("Created a connection with the server ");
-  PRINT6ADDR(&client_conn->ripaddr);
-  PRINTF(" local/remote port %u/%u\n",
-        UIP_HTONS(client_conn->lport), UIP_HTONS(client_conn->rport));
+  /* for sending data */
+  etimer_set(&periodic, SEND_INTERVAL);
 
   while(1) {
     PROCESS_YIELD();
     if(ev == tcpip_event) {
       tcpip_handler();
+    }
+    /*Changed*/
+    /*Set interval for send critical packet*/ 
+    if(etimer_expired(&periodic)) {
+      etimer_reset(&periodic);
+      ctimer_set(&backoff_timer, SEND_TIME, send_packet, NULL);
+
     }
   }
 
