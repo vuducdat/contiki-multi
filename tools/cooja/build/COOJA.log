@@ -1,41 +1,65 @@
-[17:23:06 - main] [GUI.java:3162] [WARN] - JAVA_HOME environment variable not set, Cooja motes may not compile
-[17:23:07 - AWT-EventQueue-0] [GUI.java:2846] [INFO] - External tools default settings: /external_tools_linux.config
-[17:23:07 - AWT-EventQueue-0] [GUI.java:2876] [INFO] - External tools user settings: /home/namnt/.cooja.user.properties
-[17:23:24 - Thread-0] [Simulation.java:423] [INFO] - Simulation random seed: 123456
-[17:23:24 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
-[17:23:24 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sink.sky TARGET=sky 
-[17:23:37 - Thread-0] [MspMoteType.java:277] [WARN] - Old simulation config detected: SkyByteRadio was replaced by Msp802154Radio
-[17:23:37 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sender.sky TARGET=sky 
-[17:23:37 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sink.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:38 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/namnt/contiki/examples/ipv6/rpl-collect/udp-sender.sky
-[17:23:39 - Thread-0] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
-[17:23:47 - Thread-1] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1443695027471
-[17:24:18 - Thread-1] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1443695058595	Duration: 31124 ms	Simulated time 62263 ms	Ratio 2.0004819431949623
-[17:24:28 - Thread-2] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1443695068909
-[17:24:38 - Thread-2] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1443695078602	Duration: 9693 ms	Simulated time 75191 ms	Ratio 7.757247498194573
-[17:25:22 - Thread-3] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1443695122721
-[17:25:31 - Thread-3] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1443695131218	Duration: 8497 ms	Simulated time 86314 ms	Ratio 10.158173472990468
-[17:37:27 - read input stream thread] [CollectView.java:237] [FATAL] - The CollectView application died!
+[23:38:52 - main] [GUI.java:3162] [WARN] - JAVA_HOME environment variable not set, Cooja motes may not compile
+[23:38:52 - AWT-EventQueue-0] [GUI.java:2846] [INFO] - External tools default settings: /external_tools_linux.config
+[23:38:52 - AWT-EventQueue-0] [GUI.java:2876] [INFO] - External tools user settings: /home/lion/.cooja.user.properties
+[23:39:01 - Thread-0] [Simulation.java:423] [INFO] - Simulation random seed: 123456
+[23:39:01 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sink.sky TARGET=sky 
+[23:39:02 - Thread-0] [CompileContiki.java:140] [INFO] - > make udp-sender.sky TARGET=sky 
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sink.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:02 - Thread-0] [MspMote.java:232] [INFO] - Loading firmware from: /home/lion/contiki-multi/examples/ipv6/rpl-collect/udp-sender.sky
+[23:39:03 - Thread-0] [TimeLine.java:567] [INFO] - Zoom level: 500.0 microseconds/pixel 
+[23:39:04 - Thread-0] [ScriptRunner.java:421] [INFO] - Test script deactivated
+[23:39:04 - Thread-0] [LogScriptEngine.java:265] [INFO] - Script timeout in 1800000 ms
+[23:39:04 - Thread-0] [ScriptRunner.java:378] [INFO] - Test script activated
+[23:40:10 - Thread-3] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1445532010555
+[23:40:51 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 5.00%, done in 2037.6 sec
+[23:41:31 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 10.00%, done in 1330.4 sec
+[23:41:32 - Thread-3] [MspMote.java:226] [WARN] - 17: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
+[23:41:34 - Thread-3] [MspMote.java:226] [WARN] - 8: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
+[23:42:08 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 15.00%, done in 1043.8 sec
+[23:42:43 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 20.00%, done in 877.3 sec
+[23:43:17 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 25.00%, done in 759.5 sec
+[23:43:45 - Thread-3] [MspMote.java:226] [WARN] - 20: # MSP430[VOID_IO_READ]: *** IOUnit read from non-existent IO at $0054
+[23:43:55 - Thread-3] [LogScriptEngine.java:389] [INFO] - Test script at 30.00%, done in 679.0 sec
+[23:44:17 - Thread-3] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1445532257937	Duration: 247382 ms	Simulated time 600044 ms	Ratio 2.4255766385589896
+[23:44:20 - Thread-4] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1445532260897
+[23:44:32 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 35.00%, done in 610.1 sec
+[23:45:08 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 40.00%, done in 546.7 sec
+[23:45:41 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 45.00%, done in 485.2 sec
+[23:46:16 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 50.00%, done in 431.9 sec
+[23:46:50 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 55.00%, done in 381.6 sec
+[23:47:26 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 60.00%, done in 335.0 sec
+[23:48:00 - Thread-4] [LogScriptEngine.java:389] [INFO] - Test script at 65.00%, done in 288.9 sec
+[23:48:11 - Thread-4] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1445532491916	Duration: 231019 ms	Simulated time 1199758 ms	Ratio 5.19333041871015
+[23:48:18 - Thread-5] [Simulation.java:252] [INFO] - Simulation main loop started, system time: 1445532498168
+[23:48:41 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 70.00%, done in 247.3 sec
+[23:49:16 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 75.00%, done in 204.2 sec
+[23:49:51 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 80.00%, done in 161.9 sec
+[23:50:25 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 85.00%, done in 120.2 sec
+[23:50:59 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 90.00%, done in 79.5 sec
+[23:51:33 - Thread-5] [LogScriptEngine.java:389] [INFO] - Test script at 95.00%, done in 39.4 sec
+[23:52:09 - Thread-5] [LogScriptEngine.java:375] [INFO] - Timeout event @ 1800000000
+[23:52:09 - Thread-5] [Simulation.java:311] [INFO] - Simulation main loop stopped, system time: 1445532729984	Duration: 231816 ms	Simulated time 1800000 ms	Ratio 7.764778962625531
+[23:52:09 - Thread-2] [LogScriptEngine.java:309] [INFO] - Test script finished
