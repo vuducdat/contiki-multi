@@ -52,7 +52,9 @@ static int send_active = 1;
 #ifndef PERIOD
 #define PERIOD 60
 #endif
-#define RANDWAIT (PERIOD)
+
+#define SEND_INTERVAL		(PERIOD * CLOCK_SECOND)
+#define SEND_TIME		(random_rand() % (SEND_INTERVAL))
 
 /*---------------------------------------------------------------------------*/
 PROCESS(collect_common_process, "collect common process");
@@ -106,13 +108,13 @@ collect_common_recv(const rimeaddr_t *originator, uint8_t seqno, uint8_t hops,
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(collect_common_process, ev, data)
 {
-  static struct etimer period_timer, wait_timer;
+  static struct etimer period_timer;
   PROCESS_BEGIN();
 
   collect_common_net_init();
 
   /* Send a packet every 60-62 seconds. */
-  etimer_set(&period_timer, CLOCK_SECOND * PERIOD);
+  etimer_set(&period_timer, CLOCK_SECOND * PERIOD + SEND_TIME);
   while(1) {
     PROCESS_WAIT_EVENT();
     if(ev == serial_line_event_message) {
@@ -153,15 +155,11 @@ PROCESS_THREAD(collect_common_process, ev, data)
         printf("unhandled command: %s\n", line);
       }
     }
-    if(ev == PROCESS_EVENT_TIMER) {
-      if(data == &period_timer) {
-        etimer_reset(&period_timer);
-        etimer_set(&wait_timer, random_rand() % (CLOCK_SECOND * RANDWAIT));
-      } else if(data == &wait_timer) {
-        if(send_active) {
-          /* Time to send the data */
-          collect_common_send();
-        }
+    if(etimer_expired(&period_timer)) {
+      etimer_set(&period_timer, SEND_INTERVAL);
+      if(send_active) {
+        /* Time to send the data */
+        collect_common_send();
       }
     }
   }

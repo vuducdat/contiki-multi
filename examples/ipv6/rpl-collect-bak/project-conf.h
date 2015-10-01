@@ -23,7 +23,7 @@
 #define CONTROL_TRAFFIC 2
 
 /* Config routing table */
-#undef UIP_CONF_MAX_ROUTES
-#define UIP_CONF_MAX_ROUTES 12
+/* #undef UIP_CONF_MAX_ROUTES
+#define UIP_CONF_MAX_ROUTES 12 */ 
 
 #endif /* __PROJECT_CONF_H__ */

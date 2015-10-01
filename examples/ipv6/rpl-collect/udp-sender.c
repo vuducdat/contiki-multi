@@ -51,10 +51,8 @@
 #ifndef PERIOD
 #define PERIOD 60
 #endif
+#define RANDWAIT (PERIOD)
 
-#define START_INTERVAL		(15 * CLOCK_SECOND)
-#define SEND_INTERVAL		(PERIOD * CLOCK_SECOND)
-#define SEND_TIME		(random_rand() % (SEND_INTERVAL))
 #define MAX_PAYLOAD_LEN		12
 
 static struct uip_udp_conn *client_conn;
@@ -229,8 +227,7 @@ set_global_address(void)
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(udp_client_process, ev, data)
 {
-  static struct etimer periodic;
-  static struct ctimer backoff_timer;
+  static struct etimer period_timer, wait_timer;
   PROCESS_BEGIN();
   /* Start powertracing, once every two seconds. */
   //powertrace_start(CLOCK_SECOND * 30);
@@ -248,7 +245,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
   udp_bind(client_conn, UIP_HTONS(UDP_CLIENT_PORT));
 
   /* for sending data */
-  etimer_set(&periodic, SEND_INTERVAL);
+  etimer_set(&period_timer, CLOCK_SECOND * PERIOD);
 
   while(1) {
     PROCESS_YIELD();
@@ -256,11 +253,13 @@ PROCESS_THREAD(udp_client_process, ev, data)
       tcpip_handler();
     }
     /*Changed*/
-    /*Set interval for send critical packet*/ 
-    if(etimer_expired(&periodic)) {
-      etimer_reset(&periodic);
-      ctimer_set(&backoff_timer, SEND_TIME, send_packet, NULL);
-
+    if(ev == PROCESS_EVENT_TIMER) {
+      if(data == &period_timer) {
+        etimer_reset(&period_timer);
+        etimer_set(&wait_timer, random_rand() % (CLOCK_SECOND * RANDWAIT));
+      } else if(data == &wait_timer) {
+        send_packet(NULL);
+      }
     }
   }
 

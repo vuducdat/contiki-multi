@@ -91,23 +91,33 @@ collect_common_net_init(void)
 
   PRINTF("I am sink!\n");
 }
-/*---------------------------------------------------------------------------*/
+/*Changed--------------------------------------------------------------------*/
 static void
 tcpip_handler(void)
 {
   uint8_t *appdata;
   rimeaddr_t sender;
+  uint8_t instance_id;
   uint8_t seqno;
   uint8_t hops;
+  uint16_t len;
 
   if(uip_newdata()) {
+    /*Handle receive message*/
     appdata = (uint8_t *)uip_appdata;
+    /* Get sender address */
     sender.u8[0] = UIP_IP_BUF->srcipaddr.u8[15];
     sender.u8[1] = UIP_IP_BUF->srcipaddr.u8[14];
-    seqno = *appdata;
-    hops = uip_ds6_if.cur_hop_limit - UIP_IP_BUF->ttl + 1;
+    instance_id = *appdata;	// Read instance id
+    seqno = *(appdata + 2);   	// Read sequence no
+    hops = uip_ds6_if.cur_hop_limit - UIP_IP_BUF->ttl + 1;  // Calculate hop count 
+    len = uip_datalen();
+    /*Show info message*/
+    printf("DATA recv, %d, %d, %d, %d, %d\n",
+            UIP_IP_BUF->srcipaddr.u8[sizeof(UIP_IP_BUF->srcipaddr.u8) - 1], instance_id, seqno, hops ,len);
     collect_common_recv(&sender, seqno, hops,
-                        appdata + 2, uip_datalen() - 2);
+                        appdata + 4, uip_datalen() - 4);
+
   }
 }
 /*---------------------------------------------------------------------------*/
@@ -150,10 +160,13 @@ PROCESS_THREAD(udp_server_process, ev, data)
   uip_ds6_addr_add(&ipaddr, 0, ADDR_MANUAL);
   root_if = uip_ds6_addr_lookup(&ipaddr);
   if(root_if != NULL) {
-    rpl_dag_t *dag;
+    /*Changed*/
+    rpl_dag_t *dag, *dag1;  
     dag = rpl_set_root(RPL_DEFAULT_INSTANCE,(uip_ip6addr_t *)&ipaddr);
+    dag1 = rpl_set_root(RPL_SECOND_INSTANCE,(uip_ip6addr_t *)&ipaddr);  // Add DAG1
     uip_ip6addr(&ipaddr, 0xaaaa, 0, 0, 0, 0, 0, 0, 0);
     rpl_set_prefix(dag, &ipaddr, 64);
+    rpl_set_prefix(dag1, &ipaddr, 64);  // Set prefix for DAG1
     PRINTF("created a new RPL dag\n");
   } else {
     PRINTF("failed to create a new RPL DAG\n");
@@ -181,6 +194,8 @@ PROCESS_THREAD(udp_server_process, ev, data)
     } else if (ev == sensors_event && data == &button_sensor) {
       PRINTF("Initiaing global repair\n");
       rpl_repair_root(RPL_DEFAULT_INSTANCE);
+      /*Changed*/
+      rpl_repair_root(RPL_SECOND_INSTANCE);
     }
   }
 
